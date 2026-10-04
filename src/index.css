@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+QLD+Hand:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Runethia";
+  src: url("./assets/Runethia.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme base {
+  --font-runethia: "Runethia", sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: "Jost", sans-serif;
+  }
+
+  h1 {
+    font-size: 18px;
+    font-family: "Edu QLD Hand", cursive;
+    font-optical-sizing: auto;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-family: "Jost", sans-serif;
+  }
+
+  p {
+    font-family: "Jost", sans-serif;
+  }
+  li {
+    font-family: "Jost", sans-serif;
+  }
+  button {
+    font-size: 16px;
+    font-family: "Jost", sans-serif;
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 30px;
+      font-family: "Jost", sans-serif;
+    }
+    h2 {
+      font-size: 24px;
+      font-family: "Jost", sans-serif;
+    }
+    p {
+      font-family: "Jost", sans-serif;
+    }
+
+    li {
+      font-family: "Jost", sans-serif;
+    }
+    button {
+      font-size: 14px;
+      font-family: "Jost", sans-serif;
+    }
+  }
+}
