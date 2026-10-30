@@ -1,105 +1,105 @@
-import React, { useState } from "react";
-import { ArrowBigRight, ShoppingCart, X, Minus, Plus } from "lucide-react";
+import { useState } from 'react';
+import { ArrowBigRight, ShoppingCart, X, Minus, Plus } from 'lucide-react';
 
-import cloth1 from "../assets/cloth1.jpg";
-import cloth2 from "../assets/cloth2.jpg";
-import cloth3 from "../assets/cloth3.jpg";
-import cloth4 from "../assets/cloth4.jpg";
-import cloth5 from "../assets/cloth5.jpg";
-import cloth6 from "../assets/cloth6.jpg";
-import cloth7 from "../assets/cloth7.jpg";
-import cloth8 from "../assets/cloth8.jpg";
-import bumbshort from "../assets/bumpshot.PNG";
-import cloth10 from "../assets/white-upndown.JPEG";
+import cloth1 from '../assets/cloth1.jpg';
+import cloth2 from '../assets/cloth2.jpg';
+import cloth3 from '../assets/cloth3.jpg';
+import cloth4 from '../assets/cloth4.jpg';
+import cloth5 from '../assets/cloth5.jpg';
+import cloth6 from '../assets/cloth6.jpg';
+import cloth7 from '../assets/cloth7.jpg';
+import cloth8 from '../assets/cloth8.jpg';
+import bumbshort from '../assets/bumpshot.PNG';
+import cloth10 from '../assets/white-upndown.JPEG';
 
 const categories = [
   {
     id: 1,
-    item: "Gown",
+    item: 'Gown',
     img: cloth1,
-    title: "Ladies Dress",
+    title: 'Ladies Dress',
     price: 12000,
     description:
-      "A beautiful and elegant ladies dress designed to give you a stylish and confident look.",
+      'A beautiful and elegant ladies dress designed to give you a stylish and confident look.',
   },
   {
     id: 2,
-    item: "Gown",
+    item: 'Gown',
     img: cloth2,
-    title: "Ladies Dress",
+    title: 'Ladies Dress',
     price: 12000,
     description:
-      "A stylish feminine dress perfect for special occasions and everyday elegance.",
+      'A stylish feminine dress perfect for special occasions and everyday elegance.',
   },
   {
     id: 3,
-    item: "Gown",
+    item: 'Gown',
     img: cloth3,
-    title: "Ladies Dress",
+    title: 'Ladies Dress',
     price: 10000,
-    description: "A beautiful gown designed with comfort and elegance in mind.",
+    description: 'A beautiful gown designed with comfort and elegance in mind.',
   },
   {
     id: 4,
-    item: "Gown",
+    item: 'Gown',
     img: cloth4,
-    title: "Ladies Dress",
+    title: 'Ladies Dress',
     price: 12000,
     description:
-      "A fashionable ladies dress that combines modern style with effortless elegance.",
+      'A fashionable ladies dress that combines modern style with effortless elegance.',
   },
   {
     id: 5,
-    item: "Gown",
+    item: 'Gown',
     img: cloth5,
-    title: "Ladies Dress",
+    title: 'Ladies Dress',
     price: 12000,
     description:
-      "A gorgeous dress that adds a sophisticated touch to your wardrobe.",
+      'A gorgeous dress that adds a sophisticated touch to your wardrobe.',
   },
   {
     id: 6,
-    item: "Gown",
+    item: 'Gown',
     img: cloth6,
-    title: "Ladies Dress",
+    title: 'Ladies Dress',
     price: 12000,
-    description: "A versatile feminine dress suitable for different occasions.",
+    description: 'A versatile feminine dress suitable for different occasions.',
   },
   {
     id: 7,
-    item: "Gown",
+    item: 'Gown',
     img: cloth7,
-    title: "Ladies Dress",
+    title: 'Ladies Dress',
     price: 10000,
     description:
-      "A stylish and comfortable dress created for a beautiful everyday look.",
+      'A stylish and comfortable dress created for a beautiful everyday look.',
   },
   {
     id: 8,
-    item: "Gown",
+    item: 'Gown',
     img: cloth8,
-    title: "Ladies Dress",
+    title: 'Ladies Dress',
     price: 12000,
     description:
-      "An elegant ladies dress designed to make you stand out with confidence.",
+      'An elegant ladies dress designed to make you stand out with confidence.',
   },
   {
     id: 9,
-    item: "Bumb Short",
+    item: 'Bumb Short',
     img: bumbshort,
-    title: "Bumb Short",
+    title: 'Bumb Short',
     price: 6000,
     description:
-      "A comfortable and stylish bumb short that is perfect for casual outfits.",
+      'A comfortable and stylish bumb short that is perfect for casual outfits.',
   },
   {
     id: 10,
-    item: "Twopieces",
+    item: 'Twopieces',
     img: cloth10,
-    title: "Two-Piece Set",
+    title: 'Two-Piece Set',
     price: 20000,
     description:
-      "A beautiful two-piece outfit designed for a stylish and confident appearance.",
+      'A beautiful two-piece outfit designed for a stylish and confident appearance.',
   },
 ];
 
@@ -108,7 +108,7 @@ const Categories = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   // Selected clothing size
-  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedSize, setSelectedSize] = useState('');
 
   // Quantity
   const [quantity, setQuantity] = useState(1);
@@ -119,14 +119,14 @@ const Categories = () => {
   // Open product preview
   const handlePreview = (product) => {
     setSelectedProduct(product);
-    setSelectedSize("");
+    setSelectedSize('');
     setQuantity(1);
   };
 
   // Close product preview
   const closePreview = () => {
     setSelectedProduct(null);
-    setSelectedSize("");
+    setSelectedSize('');
     setQuantity(1);
   };
 
@@ -138,14 +138,14 @@ const Categories = () => {
   // Decrease quantity
   const decreaseQuantity = () => {
     setQuantity((previousQuantity) =>
-      previousQuantity > 1 ? previousQuantity - 1 : 1,
+      previousQuantity > 1 ? previousQuantity - 1 : 1
     );
   };
 
   // Add product to cart
   const handleAddToCart = () => {
     if (!selectedSize) {
-      alert("Please select a size before adding this item to your cart.");
+      alert('Please select a size before adding this item to your cart.');
       return;
     }
 
@@ -284,15 +284,15 @@ const Categories = () => {
                   <h3 className="mb-3 font-semibold">Select Size</h3>
 
                   <div className="flex flex-wrap gap-2">
-                    {["S", "M", "L", "XL", "XXL"].map((size) => (
+                    {['S', 'M', 'L', 'XL', 'XXL'].map((size) => (
                       <button
                         key={size}
                         type="button"
                         onClick={() => setSelectedSize(size)}
                         className={`rounded-lg border px-5 py-2 text-sm font-medium transition ${
                           selectedSize === size
-                            ? "border-gray-900 bg-gray-900 text-white"
-                            : "border-gray-300 hover:border-gray-900"
+                            ? 'border-gray-900 bg-gray-900 text-white'
+                            : 'border-gray-300 hover:border-gray-900'
                         }`}
                       >
                         {size}
@@ -342,7 +342,7 @@ const Categories = () => {
                 {cart.length > 0 && (
                   <p className="mt-3 text-center text-sm text-gray-500">
                     {cart.length} item
-                    {cart.length > 1 ? "s" : ""} in your cart
+                    {cart.length > 1 ? 's' : ''} in your cart
                   </p>
                 )}
               </div>

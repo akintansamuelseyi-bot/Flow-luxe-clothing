@@ -1,27 +1,27 @@
-import React, { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { motion, useInView } from 'motion/react';
+import { useRef } from 'react';
 
 const testimonials = [
   {
     id: 1,
-    name: "Sarah",
-    role: "FLOW LUXE Customer",
+    name: 'Sarah',
+    role: 'FLOW LUXE Customer',
     review:
-      "I absolutely love my dress from FLOW LUXE. The quality was beautiful, the fit was perfect, and I felt so confident wearing it.",
+      'I absolutely love my dress from FLOW LUXE. The quality was beautiful, the fit was perfect, and I felt so confident wearing it.',
   },
   {
     id: 2,
-    name: "Amanda",
-    role: "FLOW LUXE Customer",
+    name: 'Amanda',
+    role: 'FLOW LUXE Customer',
     review:
-      "FLOW LUXE has quickly become one of my favorite fashion brands. Their styles are elegant, unique, and perfect for different occasions.",
+      'FLOW LUXE has quickly become one of my favorite fashion brands. Their styles are elegant, unique, and perfect for different occasions.',
   },
   {
     id: 3,
-    name: "Jessica",
-    role: "FLOW LUXE Customer",
+    name: 'Jessica',
+    role: 'FLOW LUXE Customer',
     review:
-      "My two-piece set was exactly what I hoped for. It looked even better in person and I received so many compliments when I wore it.",
+      'My two-piece set was exactly what I hoped for. It looked even better in person and I received so many compliments when I wore it.',
   },
 ];
 
@@ -74,7 +74,7 @@ const Testimonial = () => {
               transition={{
                 duration: 0.8,
                 delay: index * 0.2,
-                ease: "easeOut",
+                ease: 'easeOut',
               }}
               className=" rounded-2xl bg-violet-50 p-3 shadow-[6px_6px_14px_#d9c5cc,-6px_-6px_14px_#ffffff]
   "

@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { useEffect, useState } from 'react';
+import { Sparkles } from 'lucide-react';
 
 const brandStatements = [
   {
-    title: "Premium & Unique Styles",
+    title: 'Premium & Unique Styles',
     description:
-      "Discover carefully selected pieces that bring elegance, individuality, and timeless style to your wardrobe.",
+      'Discover carefully selected pieces that bring elegance, individuality, and timeless style to your wardrobe.',
   },
   {
-    title: "Made for Confidence",
+    title: 'Made for Confidence',
     description:
-      "Fashion designed to help you feel beautiful, comfortable, and confident in everything you wear.",
+      'Fashion designed to help you feel beautiful, comfortable, and confident in everything you wear.',
   },
   {
-    title: "Quality You Can Feel",
+    title: 'Quality You Can Feel',
     description:
-      "We pay attention to the details, bringing you beautiful pieces selected with quality and comfort in mind.",
+      'We pay attention to the details, bringing you beautiful pieces selected with quality and comfort in mind.',
   },
   {
-    title: "Fashion for Every Occasion",
+    title: 'Fashion for Every Occasion',
     description:
-      "From everyday looks to special moments, find styles that make every occasion a little more beautiful.",
+      'From everyday looks to special moments, find styles that make every occasion a little more beautiful.',
   },
 ];
 
@@ -30,7 +30,7 @@ const BrandStatements = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentStatement((previous) =>
-        previous === brandStatements.length - 1 ? 0 : previous + 1,
+        previous === brandStatements.length - 1 ? 0 : previous + 1
       );
     }, 2700);
 
@@ -77,8 +77,8 @@ const BrandStatements = () => {
               aria-label={`Show statement ${index + 1}`}
               className={`h-1.5 rounded-full transition-all duration-500 ${
                 currentStatement === index
-                  ? "w-4 bg-gray-900"
-                  : "w-2 bg-gray-300"
+                  ? 'w-4 bg-gray-900'
+                  : 'w-2 bg-gray-300'
               }`}
             />
           ))}

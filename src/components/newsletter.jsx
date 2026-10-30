@@ -1,5 +1,3 @@
-import React from "react";
-
 const Newsletter = () => {
   return (
     <div
@@ -9,13 +7,13 @@ const Newsletter = () => {
       <div className="mx-auto max-w-7xl px-5 py-6 sm:px-8 lg:px-12 ">
         <div className="flex flex-col border border-pink-200 rounded-bl-4xl p-5">
           <h1 className=" font-bold mb-4 md:text-[40px]">
-            Subscribe To Our Newsletter To Stay In The Flow{" "}
+            Subscribe To Our Newsletter To Stay In The Flow{' '}
           </h1>
           <p className="">
             Be the first to discover our new arrivals,
             <span className="text-pink-500 ">
               our exclusive offers, styling inspiration,
-            </span>{" "}
+            </span>{' '}
             and everything new at FLOW LUXE
           </p>
           <input

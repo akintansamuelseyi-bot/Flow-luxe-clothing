@@ -1,7 +1,6 @@
-import React from "react";
-import Footer from "../components/footer";
-import Categories from "../components/categories";
-import Navbar from "../components/navbar";
+import Footer from '../components/footer';
+import Categories from '../components/categories';
+import Navbar from '../components/navbar';
 
 const Shoppage = () => {
   return (
