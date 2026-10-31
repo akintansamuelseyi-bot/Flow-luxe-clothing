@@ -16,7 +16,7 @@ const HeroSection = () => {
                 {' '}
                 Welcome to FLOW LUXE{' '}
               </p>{' '}
-              <h1 className=" md:leading-13 leading-6 tracking-[-0.04em] text-gray-900 text-[26px] sm:text-[30px] md:text-[62px]  lg:text-[8]">
+              <h1 className=" md:leading-14 leading-7 tracking-[-0.04em] text-gray-900 text-[26px] sm:text-[30px] md:text-[62px]  lg:text-[8]">
                 {' '}
                 Your Style. <br />{' '}
                 <span className="  text-pink-500">

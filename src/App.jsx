@@ -9,6 +9,8 @@ import Privacypage from './pages/privacypage';
 import Refundpage from './pages/refundpage';
 import Termspage from './pages/termspage';
 import Trackpage from './pages/trackpage';
+import Cartpage from './pages/cartpage';
+import CartDrawer from './components/cartdrawer';
 
 const App = () => {
   return (
@@ -22,7 +24,9 @@ const App = () => {
         <Route path="/refund" element={<Refundpage />} />
         <Route path="/terms" element={<Termspage />} />
         <Route path="/track" element={<Trackpage />} />
+        <Route path="/cart" element={<Cartpage />} />
       </Routes>
+      <CartDrawer />
     </Suspense>
   );
 };
