@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useAuth from '../context/useAuth';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Menu,
@@ -21,6 +22,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const { cartCount, wishlist } = useShopping();
+  const { customer, isCheckingAuth } = useAuth();
 
   const closeMenu = () => setIsOpen(false);
 
@@ -38,7 +40,18 @@ const Navbar = () => {
     { name: 'Track Order', path: '/track' },
   ];
 
-  const mobileLinks = [...mainLinks, ...extraLinks];
+  const mobileLinks = [
+    ...mainLinks,
+    {
+      name: isCheckingAuth
+        ? 'Checking account...'
+        : customer
+          ? 'My Account'
+          : 'Login',
+      path: '/account',
+    },
+    ...extraLinks,
+  ];
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -147,7 +160,13 @@ const Navbar = () => {
               className="text-[#1d0e05] transition-colors hover:text-pink-700"
             >
               <UserRound size={22} />{' '}
-              <h3 className="text-sm font-medium">My Account</h3>
+              <h3 className="text-sm font-medium">
+                {isCheckingAuth
+                  ? 'Checking...'
+                  : customer
+                    ? 'My Account'
+                    : 'Login'}
+              </h3>
             </Link>
           </div>
 
@@ -311,7 +330,9 @@ const Navbar = () => {
           className="flex flex-col items-center gap-1 text-[#1d0e05] hover:text-pink-700"
         >
           <UserRound size={21} />
-          <span className="text-[10px]">Account</span>
+          <span className="text-[10px]">
+            {isCheckingAuth ? 'Checking...' : customer ? 'My Account' : 'Login'}
+          </span>
         </Link>
       </nav>
     </>

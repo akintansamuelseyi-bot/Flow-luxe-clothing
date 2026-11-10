@@ -44,7 +44,7 @@ const CartDrawer = () => {
         aria-label="Your shopping cart"
         aria-hidden={!isCartOpen}
         inert={!isCartOpen}
-        className={`fixed right-0 top-0 z-70 flex h-dvh w-[92vw] flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out md:w-[60vw] lg:w-[30vw] lg:min-w-[340px] lg:max-w-[480px] ${
+        className={`fixed right-0 top-0 z-70 flex h-dvh w-[92vw] flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out md:w-[60vw] lg:w-[30vw] lg:min-w-85 lg:max-w-120 ${
           isCartOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -164,15 +164,14 @@ const CartDrawer = () => {
               payment.
             </p>
 
-            <button
-              type="button"
-              disabled
-              className="mt-5 flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-full bg-pink-500 px-5 py-3 text-sm font-semibold text-white opacity-60"
+            <Link
+              to="/checkout"
+              onClick={closeDrawer}
+              className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-pink-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-pink-600"
             >
               Checkout
               <ArrowRight size={18} />
-            </button>
-
+            </Link>
             <Link
               to="/cart"
               onClick={closeDrawer}

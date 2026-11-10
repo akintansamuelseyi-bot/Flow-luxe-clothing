@@ -11,8 +11,14 @@ import {
 import { useShopping } from '../context/useshopping';
 
 const Cart = () => {
-  const { cart, cartCount, cartTotal, removeFromCart, updateCartQuantity } =
-    useShopping();
+  const {
+    cart,
+    cartCount,
+    cartTotal,
+    removeFromCart,
+    updateCartQuantity,
+    clearCart,
+  } = useShopping();
 
   const formatPrice = (price) =>
     new Intl.NumberFormat('en-NG', {
@@ -100,8 +106,13 @@ const Cart = () => {
                       <span className="font-semibold">{product.size}</span>
                     </p>
 
-                    <p className="mt-2 font-semibold text-gray-500">
-                      {formatPrice(product.price)}
+                    <p className="mt-2 text-sm text-gray-500">
+                      Unit price: {formatPrice(product.price)}
+                    </p>
+
+                    <p className="mt-2 font-semibold text-pink-400">
+                      Item total:{' '}
+                      {formatPrice(product.price * product.quantity)}
                     </p>
                   </div>
 
@@ -169,6 +180,16 @@ const Cart = () => {
                 <span>Items ({cartCount})</span>
                 <span>{formatPrice(cartTotal)}</span>
               </div>
+              <div className="mt-5 flex flex-wrap items-center gap-4">
+                <button
+                  type="button"
+                  onClick={clearCart}
+                  className="flex items-center gap-2 text-sm font-medium text-red-500 transition hover:text-red-700"
+                >
+                  <Trash2 size={16} />
+                  Clear Cart
+                </button>
+              </div>
 
               <div className="flex justify-between text-sm text-gray-600">
                 <span>Shipping</span>
@@ -181,14 +202,13 @@ const Cart = () => {
               <span>{formatPrice(cartTotal)}</span>
             </div>
 
-            <button
-              type="button"
-              disabled
-              className="flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-full bg-pink-500 px-6 py-3 font-medium text-white opacity-60"
+            <Link
+              to="/checkout"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-pink-500 px-6 py-3 font-medium text-white transition hover:bg-pink-600"
             >
               Proceed to Checkout
               <ArrowRight size={18} />
-            </button>
+            </Link>
 
             <p className="mt-4 text-center text-xs leading-5 text-gray-500">
               Checkout will be available once we complete the payment

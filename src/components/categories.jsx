@@ -1,5 +1,12 @@
 import { useState } from 'react';
-import { ArrowBigRight, ShoppingCart, X, Minus, Plus } from 'lucide-react';
+import {
+  ArrowBigRight,
+  ShoppingCart,
+  X,
+  Minus,
+  Plus,
+  Heart,
+} from 'lucide-react';
 import { useShopping } from '../context/useshopping';
 import products from '../data/products';
 
@@ -14,7 +21,7 @@ const Categories = () => {
   const [quantity, setQuantity] = useState(1);
 
   // Shared shopping information
-  const { addToCart, cartCount } = useShopping();
+  const { addToCart, cartCount, toggleWishlist, isInWishlist } = useShopping();
 
   // Open product preview
   const handlePreview = (product) => {
@@ -83,12 +90,33 @@ const Categories = () => {
                 className="overflow-hidden rounded-2xl bg-white p-2 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl md:p-3"
               >
                 {/* PRODUCT IMAGE */}
-                <div className="overflow-hidden rounded-lg">
+                <div className="relative overflow-hidden rounded-lg">
                   <img
                     src={product.img}
                     alt={product.title}
                     className="h-48 w-full object-contain transition duration-500 hover:scale-105 md:h-64"
                   />
+
+                  {/* WISHLIST BUTTON */}
+                  <button
+                    type="button"
+                    onClick={() => toggleWishlist(product)}
+                    aria-label={
+                      isInWishlist(product.id)
+                        ? 'Remove from wishlist'
+                        : 'Add to wishlist'
+                    }
+                    className="absolute right-2 top-2 flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md transition hover:scale-110"
+                  >
+                    <Heart
+                      size={20}
+                      className={
+                        isInWishlist(product.id)
+                          ? 'fill-pink-500 text-pink-500'
+                          : 'text-gray-600'
+                      }
+                    />
+                  </button>
                 </div>
 
                 {/* PRODUCT INFORMATION */}
@@ -225,7 +253,7 @@ const Categories = () => {
                 <button
                   type="button"
                   onClick={handleAddToCart}
-                  className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-gray-900 px-6 py-3 font-semibold text-white transition hover:bg-gray-700"
+                  className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-pink-600 px-6 py-3 font-semibold text-white transition hover:bg-pink-700"
                 >
                   <ShoppingCart size={20} />
                   Add to Cart

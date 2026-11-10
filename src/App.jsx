@@ -11,6 +11,12 @@ import Termspage from './pages/termspage';
 import Trackpage from './pages/trackpage';
 import Cartpage from './pages/cartpage';
 import CartDrawer from './components/cartdrawer';
+import Accountpage from './pages/accountpage';
+import Wishlistpage from './pages/wishlistpage';
+import Checkoutpage from './pages/checkoutpage';
+import Adminpage from './pages/adminpage';
+import AdminRoute from './components/adminroute';
+import Paymentcallbackpage from './pages/paymentcallbackpage';
 
 const App = () => {
   return (
@@ -25,7 +31,16 @@ const App = () => {
         <Route path="/terms" element={<Termspage />} />
         <Route path="/track" element={<Trackpage />} />
         <Route path="/cart" element={<Cartpage />} />
+        <Route path="/account" element={<Accountpage />} />
+        <Route path="/wishlist" element={<Wishlistpage />} />
+        <Route path="/checkout" element={<Checkoutpage />} />
+        <Route path="/payment/callback" element={<Paymentcallbackpage />} />
+
+        <Route element={<AdminRoute />}>
+          <Route path="/admin" element={<Adminpage />} />
+        </Route>
       </Routes>
+
       <CartDrawer />
     </Suspense>
   );
