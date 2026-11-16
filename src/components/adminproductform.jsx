@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ImagePlus, X, Upload, LoaderCircle } from 'lucide-react';
 import useAuth from '../context/useAuth';
+import { toast } from 'sonner';
 
 const AdminProductForm = ({ onProductAdded }) => {
   const { customer } = useAuth();
@@ -129,6 +130,7 @@ const AdminProductForm = ({ onProductAdded }) => {
             category_id: categoryId,
             description,
             image_url: uploadData.image.url,
+            cloudinary_public_id: uploadData.image.public_id,
           }),
         }
       );
@@ -139,7 +141,7 @@ const AdminProductForm = ({ onProductAdded }) => {
         throw new Error(productData.message || 'Unable to save product.');
       }
 
-      setMessage('Product added successfully!');
+      toast.success('Product added successfully!');
 
       setName('');
       setPrice('');
@@ -157,7 +159,7 @@ const AdminProductForm = ({ onProductAdded }) => {
       }
     } catch (error) {
       console.error('Add product error:', error);
-      setMessage(error.message || 'Something went wrong.');
+      toast.error(error.message || 'Something went wrong.');
     } finally {
       setIsSubmitting(false);
     }

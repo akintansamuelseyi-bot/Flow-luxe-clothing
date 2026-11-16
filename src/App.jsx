@@ -1,26 +1,30 @@
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { Toaster } from 'sonner';
 
-import Homepage from './pages/Homepage';
-import Contactus from './pages/Contactus';
-import Shoppage from './pages/Shoppage';
-import Aboutpage from './pages/Aboutpage';
-import Privacypage from './pages/privacypage';
-import Refundpage from './pages/refundpage';
-import Termspage from './pages/termspage';
-import Trackpage from './pages/trackpage';
-import Cartpage from './pages/cartpage';
-import CartDrawer from './components/cartdrawer';
-import Accountpage from './pages/accountpage';
-import Wishlistpage from './pages/wishlistpage';
-import Checkoutpage from './pages/checkoutpage';
-import Adminpage from './pages/adminpage';
 import AdminRoute from './components/adminroute';
-import Paymentcallbackpage from './pages/paymentcallbackpage';
+import CartDrawer from './components/cartdrawer';
+
+const Homepage = lazy(() => import('./pages/Homepage'));
+const Contactus = lazy(() => import('./pages/Contactus'));
+const Shoppage = lazy(() => import('./pages/Shoppage'));
+const Aboutpage = lazy(() => import('./pages/Aboutpage'));
+const Privacypage = lazy(() => import('./pages/privacypage'));
+const Refundpage = lazy(() => import('./pages/refundpage'));
+const Termspage = lazy(() => import('./pages/termspage'));
+const Trackpage = lazy(() => import('./pages/trackpage'));
+const Cartpage = lazy(() => import('./pages/cartpage'));
+const Accountpage = lazy(() => import('./pages/accountpage'));
+const Wishlistpage = lazy(() => import('./pages/wishlistpage'));
+const Checkoutpage = lazy(() => import('./pages/checkoutpage'));
+const Adminpage = lazy(() => import('./pages/adminpage'));
+
+const Paymentcallbackpage = lazy(() => import('./pages/paymentcallbackpage'));
 
 const App = () => {
   return (
     <Suspense fallback={<h1>Loading...</h1>}>
+      <Toaster position="top-right" richColors closeButton duration={3000} />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/shop" element={<Shoppage />} />

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Save, X, ImagePlus } from 'lucide-react';
+import { toast } from 'sonner';
 
 const EditProductForm = ({ product, onProductUpdated, onCancel }) => {
   const [name, setName] = useState(product.name || '');
@@ -9,6 +10,9 @@ const EditProductForm = ({ product, onProductUpdated, onCancel }) => {
   );
   const [description, setDescription] = useState(product.description || '');
   const [imageUrl] = useState(product.image_url || '');
+
+  const cloudinaryPublicId = product.cloudinary_public_id || '';
+
   const [imageFile, setImageFile] = useState(null);
 
   const [categories, setCategories] = useState([]);
@@ -65,8 +69,8 @@ const EditProductForm = ({ product, onProductUpdated, onCancel }) => {
       if (!token) {
         throw new Error('Your admin session has expired. Please log in again.');
       }
-
       let updatedImageUrl = imageUrl;
+      let updatedCloudinaryPublicId = cloudinaryPublicId;
 
       // Upload a replacement image only if one was selected.
       if (imageFile) {
@@ -93,6 +97,7 @@ const EditProductForm = ({ product, onProductUpdated, onCancel }) => {
         }
 
         updatedImageUrl = uploadData.image.url;
+        updatedCloudinaryPublicId = uploadData.image.public_id;
       }
 
       // Update the existing product.
@@ -110,6 +115,7 @@ const EditProductForm = ({ product, onProductUpdated, onCancel }) => {
             category_id: Number(categoryId),
             description,
             image_url: updatedImageUrl,
+            cloudinary_public_id: updatedCloudinaryPublicId,
           }),
         }
       );
@@ -120,12 +126,12 @@ const EditProductForm = ({ product, onProductUpdated, onCancel }) => {
         throw new Error(data.message || 'Unable to update product.');
       }
 
-      setSuccess('Product updated successfully!');
+      toast.success('Product updated successfully!');
 
       await onProductUpdated();
     } catch (err) {
       console.error('Product update error:', err);
-      setError(err.message || 'Something went wrong.');
+      toast.error(err.message || 'Something went wrong.');
     } finally {
       setIsSaving(false);
     }
